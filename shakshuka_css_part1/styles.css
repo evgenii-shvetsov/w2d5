@@ -1,0 +1,92 @@
+body {
+    font-family: "Arial, sans-serif";
+    margin-left: 30px;
+    background-color: rgb(227, 240, 247);
+}
+
+h1{
+    font-size: 38px;
+}
+
+h2{
+    font-size: 32px;
+}
+
+.ingredients-list{
+    list-style: square;
+}
+
+#preparation .ingredients-list {
+    list-style: circle;
+} 
+
+header > img {
+    width: 100px;
+}
+
+li a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+figcaption a{
+    text-decoration: none;
+    color: inherit;
+   
+}
+
+input[type="radio"]{
+    cursor: pointer;
+    outline:none;
+    
+}
+
+input[type="radio"]{
+    -webkit-appearance: none;
+    width: 27px;
+    height: 27px;
+    background-image: url(./img/stars.png);
+}
+
+input[type="radio"]:hover{
+    background-position: 30px 60px;
+}
+
+input[type="radio"]:checked{
+    background-position: 30px 30px;
+}
+
+
+input[type="submit"]{
+    cursor: pointer;
+    outline:none;
+    background-color: rgb(236, 236, 239);
+    vertical-align: bottom;
+    
+}
+
+input[type="submit"]:hover{
+    background-color: rgb(174, 174, 174);
+    color: white;
+}
+
+#expertise:last-child {
+    cursor: pointer;
+    outline:none
+}
+
+#preparation .ingredients-list li:nth-child(odd){
+    background-color: lightgray;
+}
+
+.user_review {
+    background-color: rgb(203, 224, 224);
+    color: black;
+    font-weight: bold;
+}
+
+h2 + .user_review {
+    border-top: 1px solid black;
+}
+
