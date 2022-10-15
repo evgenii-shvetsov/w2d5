@@ -22,7 +22,7 @@ class List
     end
 
     def size
-        @items.size
+        @items.length
     end
 
     def valid_index?(index)
@@ -49,5 +49,62 @@ class List
     def priority
         @items.first
     end
+
+    def print
+        puts "_" * 50
+        puts " " * 20 + self.label.upcase
+        puts "_" * 50
+        puts "#{'Index'.ljust(5)} | #{'Item'.ljust(20)} | #{'Deadline'.ljust(10)}"
+        puts "-" * 50
+        @items.each_with_index do |item, i|
+            puts "#{i.to_s.ljust(5)} | #{item.title.ljust(20)} | #{item.deadline.ljust(10)}"
+        end
+        puts "_" * 50
+    end
+
+    def print_full_item(index)
+        if self.valid_index?(index)
+            puts "-" * 42
+            puts "#{item.title.ljust(42/2)}#{item.deadline.rjust(42/2)}"
+            puts item.description
+            puts "-" * 42
+        end
+    end
+
+    def print_priority
+        print_full_item(self.priority)
+    end
+
+    def up(index, amount = 1)
+        if !self.valid_index?(index)
+            false
+        else
+            while amount > 0 && index != 0
+                swap(index, index - 1)
+                index -= 1
+                amount -= 1
+            end
+            true
+        end
+    end
+
+    def down(index, amount = 1)
+        if !self.valid_index?(index)
+            false
+        else
+            while amount > 0 && index != size - 1
+                swap(index, index + 1)
+                index += 1
+                amount -= 1
+            end
+            true
+        end
+    end
+
+    def sort_by_date!
+        @items.sort_by! {|item| item.deadline}
+    end
+
+
 
 end
